@@ -3,22 +3,16 @@
 
 	if($_SERVER['REQUEST_METHOD']=='GET'){
 		try{
-			//$id = $_GET['id']; // obtener parametros GET
-			//$respuesta = SQLGlobal::query("QUERY");//sin filtro ("No incluir filtros ni '?'")
-			$respuesta = SQLGlobal::selectArray("select * from cuenta");
+			$Usuario = $_GET['Usuario']; // obtener parametros GET
+			$Contraseña = $_GET['Contraseña'];
+			$respuesta = SQLGlobal::selectArrayFiltro("select * from cuenta where Usuario = ? and Contraseña = ?");
+			array($Usuario,$Contraseña);
+
             echo json_encode(array(
 				'respuesta' => '200',
                 'estado' => 'Se obtuvieron los datos correctamente',
                 'data' => $respuesta,
                 'error' => ''
-			));
-            
-            //con filtro ("El tamaño del array debe ser igual a la cantidad de los '?'")
-			echo json_encode(array(
-				'respuesta'=>'200',
-				'estado' => 'Se obtuvieron los datos correctamente',
-				'data'=>$respuesta,
-				'error'=>''
 			));
 		}catch(PDOException $e){
 			echo json_encode(
