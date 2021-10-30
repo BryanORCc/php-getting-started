@@ -5,7 +5,7 @@
 		try{
 			$Usuario = $_GET['Usuario']; // obtener parametros GET
 			$Contraseña = $_GET['Contraseña'];
-			$respuesta = SQLGlobal::selectArrayFiltro("select * from cuenta where Usuario = ? and Contraseña = ?", array($Usuario,$Contraseña);
+			$respuesta = SQLGlobal::selectArrayFiltro("select * from cuenta where usuario = ? and contraseña = ?", array($Usuario,$Contraseña);
 
             echo json_encode(array(
 				'respuesta' => '200',
