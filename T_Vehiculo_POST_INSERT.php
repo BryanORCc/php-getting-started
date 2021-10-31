@@ -9,8 +9,8 @@
             $FotoVehiculo = $datos["FotoVehiculo"];
             $MarcaVehiculo = $datos["MarcaVehiculo"];
             $ModeloVehiculo = $datos["ModeloVehiculo"];
-			$respuesta = SQLGlobal::queryFiltro("INSERT into T_Vehiculo values (?,?,?,?,?)",array($VehiculoId, $TipoVehiculo, $FotoVehiculo, $MarcaVehiculo, $ModeloVehiculo));
-            
+			$respuesta = SQLGlobal::cudFiltro("INSERT into T_Vehiculo values (?,?,?,?,?)",array($VehiculoId, $TipoVehiculo, $FotoVehiculo, $MarcaVehiculo, $ModeloVehiculo));
+
 			echo json_encode(array(
 				'respuesta'=>'200',
 				'estado' => 'Se obtuvieron los datos correctamente',
