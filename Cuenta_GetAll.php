@@ -3,9 +3,9 @@
 
 	if($_SERVER['REQUEST_METHOD']=='GET'){
 		try{
-			$usuario = $_GET['usuario']; // obtener parametros GET
-			//$Contraseña = $_GET['Contraseña'];
-			$respuesta = SQLGlobal::selectArrayFiltro("select * from cuenta where usuario = ? ", array($usuario);
+			$Usuario = $_GET['Usuario']; // obtener parametros GET
+			$Contraseña = $_GET['Contraseña'];
+			$respuesta = SQLGlobal::selectArrayFiltro("SELECT * from cuenta where usuario = ? and contraseña = ?", array($Usuario,$Contraseña);
 
             echo json_encode(array(
 				'respuesta' => '200',
