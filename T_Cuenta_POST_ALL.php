@@ -15,14 +15,14 @@
 			if($respuesta>0){
                 echo json_encode(array(
                     'respuesta'=>'200',
-                    'estado' => '1',
+                    'estado' => 'correcto',
                     'data'=> $respuesta;
                     'error'=>''
                 ));
             }else{
                 echo json_encode(array(
                     'respuesta'=>'100',
-                    'estado' => '0',
+                    'estado' => 'incorrecto',
                     'data'=> $respuesta;
                     'error'=>''
                 ));
