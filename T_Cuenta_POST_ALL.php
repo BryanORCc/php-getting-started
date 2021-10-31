@@ -15,15 +15,15 @@
 			if($respuesta>0){
                 echo json_encode(array(
                     'respuesta'=>'200',
-                    'estado' => 'Bienvenido',
-                    'data'=> true;
+                    'estado' => '1',
+                    'data'=> $respuesta;
                     'error'=>''
                 ));
             }else{
                 echo json_encode(array(
                     'respuesta'=>'100',
-                    'estado' => 'Verificar usuario o contraseña',
-                    'data'=> false;
+                    'estado' => '0',
+                    'data'=> $respuesta;
                     'error'=>''
                 ));
             }
