@@ -4,13 +4,13 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		try{
 			$datos = json_decode(file_get_contents("php://input"),true);
-
-			//$id = $datos["id"]; // obtener parametros POST
-			//$respuesta = SQLGlobal::query("QUERY");//sin filtro ("No incluir filtros ni '?'")
-			$respuesta = SQLGlobal::queryFiltro(
-				"QUERY WHERE A = ? AND B = ? AND C = ?",
-				array("element1","element2","...")
-			);//con filtro ("El tamaño del array debe ser igual a la cantidad de los '?'")
+            $VehiculoId = $datos["VehiculoId"];
+            $TipoVehiculo = $datos["TipoVehiculo"];
+            $FotoVehiculo = $datos["FotoVehiculo"];
+            $MarcaVehiculo = $datos["MarcaVehiculo"];
+            $ModeloVehiculo = $datos["ModeloVehiculo"];
+			$respuesta = SQLGlobal::queryFiltro("INSERT into T_Vehiculo values (?,?,?,?,?)",array($VehiculoId, $TipoVehiculo, $FotoVehiculo, $MarcaVehiculo, $ModeloVehiculo));
+            
 			echo json_encode(array(
 				'respuesta'=>'200',
 				'estado' => 'Se obtuvieron los datos correctamente',
