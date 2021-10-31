@@ -12,12 +12,22 @@
 
 			$respuesta = SQLGlobal::selectArrayFiltro("SELECT * from cuenta where usuario = ? and contraseña = ?", array($Usuario,$Contraseña));
 
-			echo json_encode(array(
-				'respuesta'=>'200',
-				'estado' => 'Se obtuvieron los datos correctamente',
-				'data'=>$respuesta,
-				'error'=>''
-			));
+			if($respuesta>0){
+                echo json_encode(array(
+                    'respuesta'=>'200',
+                    'estado' => 'Registro exitoso',
+                    'data'=> true;
+                    'error'=>''
+                ));
+            }else{
+                echo json_encode(array(
+                    'respuesta'=>'100',
+                    'estado' => 'Fallo el registro',
+                    'data'=> false;
+                    'error'=>''
+                ));
+            }
+
 		}catch(PDOException $e){
 			echo json_encode(
 				array(
